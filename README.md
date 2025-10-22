@@ -1,16 +1,73 @@
-# React + Vite
+ToyTopia – A Local Kids Toy Store Platform
+//** Project Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ToyTopia is a vibrant and playful online marketplace where local toy sellers can showcase their products,
+and parents can easily find toys for their children.
+This website is a Single Page Application (SPA) built with React, Firebase Authentication, React Router, and Tailwind CSS.
 
-Currently, two official plugins are available:
+//** Project Purpose
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Empower local toy sellers to reach a wider audience.
 
-## React Compiler
+Provide a safe, engaging, and user-friendly experience for families.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Simplify toy discovery through categorized listings and interactive UI.
 
-## Expanding the ESLint configuration
+Integrate Firebase for secure authentication and smooth user management.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+//*** Live Website URL
+
+//**** GitHub Repository: https://github.com/Monir312/ToyTopia-baby-toy-store
+
+
+ // ** Key Features
+ // ** Home Page
+
+Beautiful slider section (Swiper)
+
+Popular Toys section (from JSON data)
+
+Two additional informative sections
+
+Navbar and Footer displayed on all pages
+
+//**  Authentication  **//
+
+Email & Password login and registration
+
+Google sign-in integration
+
+Forgot Password functionality
+
+Persistent login using Firebase onAuthStateChanged
+
+Password validation (Uppercase, Lowercase, Minimum 6 characters)
+
+//** Protected Routes **//
+
+Toy Details page (accessible only to logged-in users)
+
+My Profile page (view and update user info via Firebase updateProfile())
+
+Private routes remain logged in even after page reload
+
+// Dynamic & Interactive //
+
+Toast/SweetAlert for success and error messages
+
+Smooth animations using AOS
+
+Fully responsive (Mobile, Tablet, Desktop)
+
+Custom 404 Not Found page
+
+
+//** Technical Highlights **//
+
+JSON data hosted on ImgBB / PostImages
+
+Firebase configuration secured via Environment Variables
+
+Dynamic Page Titles (using React Helmet)
+
+Clean and consistent routing structure
