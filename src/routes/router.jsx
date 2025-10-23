@@ -4,14 +4,13 @@ import MainLayout from "../layout/MainLayout";
 import Home from "../pages/Home";
 import AllToys from "../pages/AllToys";
 import AddAToys from "../pages/AddAToys";
-import MyProfile from "../privateLayout/MyProfile";
-import ToyDetails from "../privateLayout/ToyDetails";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import PrivateRoute from "../authContext/PrivateRoute";
 import Blog from "../pages/Blog";
 import Loading from "../pages/Loading";
 import AboutUs from "../components/AboutUs";
+import ToyDetails from "../pages/ToyDetails";
 
 export const router = createBrowserRouter([
   {
@@ -37,14 +36,6 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/myprofile",
-        element: (
-          <PrivateRoute>
-            <MyProfile />
-          </PrivateRoute>
-        ),
-      },
-      {
         path: "/toydetails/:id",
         element: (
           <PrivateRoute>
@@ -57,7 +48,7 @@ export const router = createBrowserRouter([
         element: <Blog />,
       },
       {
-        path: "/aboutus",
+        path: "/about",
         element: <AboutUs />,
       },
       {

@@ -49,10 +49,10 @@ const ToyDetails = () => {
           <p className="text-gray-700 text-lg">{toy.description}</p>
 
           <div className="grid grid-cols-2 gap-4 text-gray-600 font-semibold">
-            <div>Price: ${toy.price}</div>
-            <div>Rating: {toy.rating} <FaStar/></div>
-            <div>Available: {toy.availableQuantity}</div>
-            <div>Category: {toy.subCategory}</div>
+            <div>Price: <span className="font-bold">${toy.price}</span></div>
+            <div className="flex items-center gap-3 ">Rating: <span className="font-bold">{toy.rating} </span> <FaStar className="text-yellow-400"/></div>
+            <div>Available: <span className="font-bold">{toy.availableQuantity}</span> </div>
+            <div>Category: <span className="font-bold">{toy.subCategory}</span></div>
           </div>
 
           <div className="mt-6 p-6 bg-white rounded-xl shadow-lg">
