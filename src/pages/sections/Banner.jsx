@@ -1,9 +1,16 @@
+//→ Category Tabs → Blog Preview → Reviews → Newsletter
+
+//, Toy Category Tabs, Blog Preview, Why Choose Us, Customer Reviews,Gallery Section
+
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router";
+import './Banner.css';
 
 const Banner = () => {
   const [slides, setSlides] = useState([]);
   const [current, setCurrent] = useState(0);
+  const [isHovered, setIsHovered] = useState(false); 
 
   useEffect(() => {
     fetch("/toys.json")
@@ -29,10 +36,12 @@ const Banner = () => {
   useEffect(() => {
     if (slides.length === 0) return;
     const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length);
+      if (!isHovered) {
+        setCurrent((prev) => (prev + 1) % slides.length);
+      }
     }, 4000);
     return () => clearInterval(interval);
-  }, [slides]);
+  }, [slides, isHovered]);
 
   const slide = slides[current];
 
@@ -44,9 +53,12 @@ const Banner = () => {
     );
   }
 
-
   return (
-    <section className="relative overflow-hidden text-white">
+    <section
+      className="relative overflow-hidden text-white"
+      onMouseEnter={() => setIsHovered(true)} 
+      onMouseLeave={() => setIsHovered(false)} 
+    >
       <AnimatePresence mode="wait">
         <motion.div
           key={slide.id}
@@ -56,13 +68,12 @@ const Banner = () => {
           transition={{ duration: 0.8, ease: "easeInOut" }}
           className={`min-h-[80vh] flex flex-col lg:flex-row items-center justify-center bg-gradient-to-r ${slide.bg} relative`}
         >
-          {/* Background Overlay */}
+          
           <div
             className="absolute inset-0 bg-cover bg-center opacity-20"
             style={{ backgroundImage: `url(${slide.image})` }}
           ></div>
 
-          {/* Left Text Section */}
           <div className="relative z-10 w-full lg:w-1/2 px-8 md:px-16 py-10 text-center lg:text-left">
             <motion.h1
               className="text-4xl md:text-6xl font-extrabold leading-tight mb-6 drop-shadow-lg"
@@ -90,16 +101,15 @@ const Banner = () => {
             </motion.p>
 
             <div className="flex gap-4 justify-center lg:justify-start">
-              <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold rounded-xl px-6 py-3 shadow-lg transition-all duration-300 transform hover:scale-105">
+              <Link to='/alltoys' className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold rounded-xl px-6 py-3 shadow-lg transition-all duration-300 transform hover:scale-105">
                 Shop Now
-              </button>
+              </Link>
               <button className="border border-white text-white rounded-xl px-6 py-3 hover:bg-white hover:text-purple-600 transition-all duration-300">
                 Learn More
               </button>
             </div>
           </div>
 
-          {/* Right Image Section */}
           <motion.div
             className="relative z-10 w-full lg:w-1/2 flex justify-center"
             initial={{ scale: 0.9, opacity: 0 }}
@@ -114,21 +124,8 @@ const Banner = () => {
           </motion.div>
         </motion.div>
       </AnimatePresence>
-
-      {/* Floating Animation */}
-      <style>
-        {`
-          @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-          }
-          .animate-float {
-            animation: float 4s ease-in-out infinite;
-          }
-        `}
-      </style>
     </section>
+
   );
 };
 

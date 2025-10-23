@@ -1,0 +1,46 @@
+
+
+[
+  {
+    "id": 1,
+    "name": "Alice Johnson",
+    "review": "Amazing toys! My kids absolutely love them. Quality is top-notch and delivery was super fast.",
+    "rating": 5,
+    "picture": "https://i.ibb.co/vCvqzdyN/David-M-Brown-NASA-photo-portrait-in-orange-suit.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Michael Smith",
+    "review": "Great selection and very creative toys. Customer support is very responsive and helpful.",
+    "rating": 4,
+    "picture": "https://i.ibb.co/bgncNyGf/images-8.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Sophie Williams",
+    "review": "Love the quality and educational value. My children spend hours learning and playing at the same time.",
+    "rating": 5,
+    "picture": "https://i.ibb.co/NgPgJ60V/images-7.jpg"
+  },
+  {
+    "id": 4,
+    "name": "John Davis",
+    "review": "The toys are not only fun but also safe and durable. My children never want to stop playing!",
+    "rating": 4,
+    "picture": "https://i.ibb.co/1GrWTSVH/images-6.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Rachel Lee",
+    "review": "Fantastic toys for enhancing creativity and learning. My kids are engaged for hours, and I love that they are educational!",
+    "rating": 5,
+    "picture": "https://i.ibb.co/Z6rzp6Yt/images-5.jpg"
+  },
+  {
+    "id": 6,
+    "name": "David Brown",
+    "review": "I am extremely impressed with the quality of these toys. They are sturdy and well-made. Highly recommend!",
+    "rating": 5,
+    "picture": "https://i.ibb.co/gLkLDtzd/images-4.jpg"
+  }
+]
