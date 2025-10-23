@@ -1,4 +1,5 @@
 ToyTopia – A Local Kids Toy Store Platform
+
 //** Project Overview
 
 ToyTopia is a vibrant and playful online marketplace where local toy sellers can showcase their products,
@@ -21,6 +22,7 @@ Integrate Firebase for secure authentication and smooth user management.
 
 
  // ** Key Features
+ 
  // ** Home Page
 
 Beautiful slider section (Swiper)

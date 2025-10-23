@@ -4,10 +4,11 @@ import { FcAbout, FcPrivacy } from "react-icons/fc";
 import { IoCall } from "react-icons/io5";
 import { MdIndeterminateCheckBox, MdLocalShipping } from "react-icons/md";
 import { TbTruckReturn } from "react-icons/tb";
+import { Link } from "react-router";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-pink-200 via-yellow-100 to-pink-100 text-gray-800 pt-10 pb-6 mt-16">
+    <footer className="bg-gradient-to-r from-pink-200 via-yellow-100 to-pink-100 text-gray-800 pt-10 pb-6">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
         <div>
           <h2 className="text-3xl font-bold text-pink-600 mb-3">ToyTopia</h2>
@@ -52,9 +53,9 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="/faq" className="hover:text-pink-500 transition-colors flex items-center">
+              <Link to="/blog" className="hover:text-pink-500 transition-colors flex items-center">
               <FaQuestion className="mr-2"/> FAQ
-              </a>
+              </Link>
             </li>
             <li>
               <a href="/shipping" className="hover:text-pink-500 transition-colors flex items-center">
