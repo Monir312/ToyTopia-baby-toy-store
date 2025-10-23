@@ -1,4 +1,4 @@
-//→ Category Tabs → Blog Preview → Reviews → Newsletter
+// → Blog Preview → Reviews → Newsletter
 
 //, Toy Category Tabs, Blog Preview, Why Choose Us, Customer Reviews,Gallery Section
 
