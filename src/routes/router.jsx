@@ -22,7 +22,9 @@ export const router = createBrowserRouter([
       },
       {
         path: "/alltoys",
-        element: <AllToys />
+        element: <AllToys />,
+        loader: ()=>fetch('/toys.json'),
+        hydrateFallbackElement: <Loading></Loading>
       },
       {
         path: "/addtoy",
