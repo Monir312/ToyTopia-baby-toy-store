@@ -11,6 +11,7 @@ import Register from "../pages/Register";
 import PrivateRoute from "../authContext/PrivateRoute";
 import Blog from "../pages/Blog";
 import Loading from "../pages/Loading";
+import AboutUs from "../components/AboutUs";
 
 export const router = createBrowserRouter([
   {
@@ -24,7 +25,7 @@ export const router = createBrowserRouter([
       {
         path: "/alltoys",
         element: <AllToys />,
-        loader: ()=>fetch('/toys.json'),
+        loader: () => fetch('/toys.json'),
         hydrateFallbackElement: <Loading></Loading>
       },
       {
@@ -56,11 +57,15 @@ export const router = createBrowserRouter([
         element: <Blog />,
       },
       {
-        path: "/login",
+        path: "/aboutus",
+        element: <AboutUs />,
+      },
+      {
+        path: "/auth/login",
         element: <Login />
       },
       {
-        path: "/register",
+        path: "/auth/register",
         element: <Register />
       },
       {

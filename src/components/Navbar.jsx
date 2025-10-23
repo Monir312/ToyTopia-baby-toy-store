@@ -51,7 +51,7 @@ const Navbar = () => {
           </ul>
         </div>
 
-        {/* Logo */}
+
         <Link to="/" className="flex items-center gap-2">
           <img
             src={logoImg}
@@ -67,11 +67,10 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1 text-gray-700 text-lg">{navLinks}</ul>
       </div>
 
-      {/* User Section */}
       <div className="navbar-end flex items-center gap-3">
         {user ? (
           <>
-            {/* Tooltip on hover */}
+
             <div
               data-tooltip-id="user-tooltip"
               data-tooltip-content={user?.displayName || "User"}
@@ -95,7 +94,7 @@ const Navbar = () => {
             </button>
           </>
         ) : (
-          <Link to="/login" className="btn btn-sm bg-pink-500 hover:bg-pink-600 text-white">
+          <Link to="/auth/login" className="btn btn-sm bg-pink-500 hover:bg-pink-600 text-white">
             Login
           </Link>
         )}

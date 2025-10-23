@@ -1,7 +1,3 @@
-// → Blog Preview → Reviews → Newsletter
-
-//, Toy Category Tabs, Blog Preview, Why Choose Us, Customer Reviews,Gallery Section
-
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router";

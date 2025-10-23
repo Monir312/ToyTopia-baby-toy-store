@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { FaStar } from "react-icons/fa";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 
 
 const AllToys = () => {
   const toys = useLoaderData();
+  const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
   const toysPerPage = 20;
 
@@ -80,7 +81,9 @@ const AllToys = () => {
             </div>
 
             <div className="absolute inset-0 bg-purple-700 bg-opacity-70 flex justify-center items-center opacity-0 group-hover:opacity-100 transition duration-300 rounded-3xl">
-              <button className="px-6 py-2 bg-yellow-400 text-purple-700 font-bold rounded-full hover:bg-yellow-300 transition">
+              <button
+              onClick={() => navigate(`/toydetails/${toy.toyId}`)}
+               className="px-6 py-2 bg-yellow-400 text-purple-700 font-bold rounded-full hover:bg-yellow-300 transition">
                 View Details
               </button>
             </div>

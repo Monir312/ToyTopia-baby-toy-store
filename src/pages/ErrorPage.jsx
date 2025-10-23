@@ -25,7 +25,6 @@ const ErrorPage = () => {
         </Link>
       </div>
 
-      {/* Cute toy images */}
       <div className="flex justify-center mt-10 gap-4">
         <img
           src={img404_1}

@@ -15,10 +15,6 @@ const MainLayout = () => {
         <nav className=''>
           <Navbar></Navbar>
         </nav>
-        {/* <Header></Header> */}
-        {/* <section className='w-11/12 mx-auto'>
-          <LatestNews></LatestNews>
-        </section> */}
       </header>
 
       <main className='w-full '>

@@ -6,23 +6,21 @@ const ToyCategory = () => {
   const [activeCategory, setActiveCategory] = useState("");
   const [filteredToys, setFilteredToys] = useState([]);
 
-  // 🔹 Load data from toys.json
   useEffect(() => {
     fetch("/toys.json")
       .then((res) => res.json())
       .then((data) => {
         setToys(data);
-        // Extract unique categories
+
         const uniqueCategories = [
           ...new Set(data.map((toy) => toy.subCategory)),
         ];
         setCategories(uniqueCategories);
-        setActiveCategory(uniqueCategories[0]); // Set default active category
+        setActiveCategory(uniqueCategories[0]); 
       })
       .catch((err) => console.error("Failed to load toy data:", err));
   }, []);
 
-  // 🔹 Filter toys based on active category
   useEffect(() => {
     if (activeCategory) {
       const filtered = toys.filter((toy) => toy.subCategory === activeCategory);

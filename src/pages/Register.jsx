@@ -1,17 +1,61 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link, useNavigate  } from "react-router";
 import { FcGoogle } from "react-icons/fc";
 import { GiJusticeStar } from "react-icons/gi";
 
+import { useContext, useState } from "react";
+import { AuthContext } from "../authContext/AuthProvider";
+
 const Register = () => {
-  const handleRegister = (e) => {
-    e.preventDefault();
+  const [error, setError] = useState("");
+const { createUser, updateUser, googleSignIn } = useContext(AuthContext);
+const navigate = useNavigate();
 
-  };
 
-  const handleGoogleSignIn = () => {
 
-  };
+const handleRegister = (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const name = form.name.value;
+  const email = form.email.value;
+  const password = form.password.value;
+  const photoURL = form.photoURL.value;
+
+  // Create User
+  createUser(email, password)
+    .then((result) => {
+      const user = result.user;
+      console.log("User created:", user);
+
+      // Update Profile
+      updateUser({ displayName: name, photoURL: photoURL })
+        .then(() => {
+          navigate("/");
+        })
+        .catch((err) => {
+          console.error(err);
+          setError(err.message);
+        });
+    })
+    .catch((err) => {
+      console.error(err);
+      setError(err.message);
+    });
+};
+
+
+
+const handleGoogleSignIn = () => {
+  googleSignIn()
+    .then((result) => {
+      console.log(result.user);
+      navigate("/");
+    })
+    .catch((error) => {
+      console.error(error);
+      setError(error.message);
+    });
+};
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-100 via-white to-indigo-100 p-4">
@@ -93,7 +137,6 @@ const Register = () => {
           </button>
         </form>
 
-        {/* Divider */}
         <div className="flex items-center my-6">
           <div className="flex-1 h-px bg-gray-300"></div>
           <span className="px-2 text-gray-500 text-sm">or</span>
@@ -115,7 +158,7 @@ const Register = () => {
         <p className="text-center text-sm text-gray-600 mt-6">
           Already have an account?{" "}
           <Link
-            to="/login"
+            to="/auth/login"
             className="text-indigo-500 font-medium hover:underline"
           >
             Login

@@ -1,15 +1,48 @@
-import React from "react";
-import { Link } from "react-router";
+import React, { useState, useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
 import { GiShakingHands } from "react-icons/gi";
+import { AuthContext } from "../authContext/AuthProvider";
 
 const Login = () => {
+  const [error, setError] = useState("");
+  const { signIn, googleSignIn } = useContext(AuthContext);
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const handleLogin = (e) => {
     e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log("Logged in user:", user);
+        form.reset();
+
+        navigate(location.state?.from?.pathname || "/");
+      })
+      .catch((error) => {
+        console.error(error);
+        setError(error.message);
+      });
   };
 
   const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => {
+        console.log(result.user);
+        navigate(location.state?.from?.pathname || "/");
+      })
+      .catch((error) => {
+        console.error(error);
+        setError(error.message);
+      });
   };
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-white to-pink-100 flex items-center justify-center p-4">
@@ -49,6 +82,7 @@ const Login = () => {
               placeholder="Enter your password"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none"
             />
+            {error && <p className="text-red-500 mt-2">{error}</p>}
           </div>
 
           {/* Forget Password */}
@@ -70,7 +104,7 @@ const Login = () => {
           </button>
         </form>
 
-        {/* Divider */}
+
         <div className="flex items-center my-6">
           <div className="flex-1 h-px bg-gray-300"></div>
           <span className="px-2 text-gray-500 text-sm">or</span>
@@ -92,7 +126,7 @@ const Login = () => {
         <p className="text-center text-sm text-gray-600 mt-6">
           Don’t have an account?{" "}
           <Link
-            to="/register"
+            to="/auth/register"
             className="text-indigo-500 font-medium hover:underline"
           >
             Register
