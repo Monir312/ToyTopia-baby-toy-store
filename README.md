@@ -4,7 +4,7 @@
 //** Purpose
 Baby Toytopia is an interactive toy marketplace web application where users can explore, add, update, and manage toy collections. It provides a secure authentication system, smooth navigation, and a responsive UI designed to enhance the user experience for both buyers and sellers of baby toys.
 
- Live URL: 
+ Live URL: https://baby-toytopia.netlify.app/
 
 ** Key Features
 
