@@ -5,6 +5,7 @@ import { GiJusticeStar } from "react-icons/gi";
 
 import { useContext, useState } from "react";
 import { AuthContext } from "../authContext/AuthProvider";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const [error, setError] = useState("");
@@ -33,14 +34,14 @@ const Register = () => {
       setError("Password must contain at least one lowercase letter");
       return;
     }
-
-    setError("");
+    setError('');
 
     // Create User
     createUser(email, password)
       .then((result) => {
         const user = result.user;
         console.log("User created:", user);
+        toast.success('Registration successful!');
 
         // Update Profile
         updateUser({ displayName: name, photoURL: photoURL })
@@ -49,11 +50,13 @@ const Register = () => {
           })
           .catch((err) => {
             console.error(err);
+
             setError(err.message);
           });
       })
       .catch((err) => {
         console.error(err);
+        toast.error('Please fill valid information!');
         setError(err.message);
       });
   };
@@ -64,10 +67,12 @@ const Register = () => {
     googleSignIn()
       .then((result) => {
         console.log(result.user);
+        toast.success("Google sign-in successful!");
         navigate("/");
       })
       .catch((error) => {
         console.error(error);
+        toast.error("Google sign-in failed!");
         setError(error.message);
       });
   };
@@ -143,10 +148,14 @@ const Register = () => {
             />
           </div>
 
+          {error && (
+            <p className="text-red-600 text-center font-medium mt-2">{error}</p>
+          )}
+
           {/* Submit */}
           <button
             type="submit"
-            className="w-full py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition duration-300 shadow-md"
+            className="w-full py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition duration-300 shadow-md cursor-pointer"
           >
             Register
           </button>
@@ -161,7 +170,7 @@ const Register = () => {
         {/* Google Sign-In */}
         <button
           onClick={handleGoogleSignIn}
-          className="w-full flex items-center justify-center gap-2 border border-gray-300 py-2 rounded-lg hover:bg-gray-50 transition duration-300"
+          className="w-full flex items-center justify-center gap-2 border border-gray-300 py-2 rounded-lg hover:bg-gray-50 transition duration-300 cursor-pointer"
         >
           <FcGoogle className="text-2xl" />{" "}
           <span className="font-medium text-gray-700">

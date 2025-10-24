@@ -32,12 +32,12 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <a href="/privacy" className="hover:text-pink-500 transition-colors flex items-center">
+              <a href="/" className="hover:text-pink-500 transition-colors flex items-center">
                 <FcPrivacy className="mr-2"></FcPrivacy> Privacy Policy
               </a>
             </li>
             <li>
-              <a href="/terms" className="hover:text-pink-500 transition-colors flex items-center">
+              <a href="/" className="hover:text-pink-500 transition-colors flex items-center">
               <MdIndeterminateCheckBox className="mr-2"/> Terms & Conditions
               </a>
             </li>
@@ -58,12 +58,12 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <a href="/shipping" className="hover:text-pink-500 transition-colors flex items-center">
+              <a href="/" className="hover:text-pink-500 transition-colors flex items-center">
               <MdLocalShipping className="mr-2"/> Shipping Info
               </a>
             </li>
             <li>
-              <a href="/returns" className="hover:text-pink-500 transition-colors flex items-center">
+              <a href="/" className="hover:text-pink-500 transition-colors flex items-center">
               <TbTruckReturn className="mr-2"/> Returns & Refunds
               </a>
             </li>

@@ -37,7 +37,6 @@ const Navbar = () => {
   return (
     <div className="navbar bg-gradient-to-r from-pink-100 via-purple-100 to-blue-100 px-4 md:px-12 py-3 shadow-md sticky top-0 z-50 backdrop-blur-md">
       <div className="navbar-start">
-        {/* Mobile Menu */}
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
           <FaBars className="text-2xl text-gray-700" />
@@ -62,7 +61,6 @@ const Navbar = () => {
         </Link>
       </div>
 
-      {/* Desktop Menu */}
       <div className="navbar-center hidden md:flex">
         <ul className="menu menu-horizontal px-1 text-gray-700 text-lg">{navLinks}</ul>
       </div>
@@ -76,11 +74,13 @@ const Navbar = () => {
               data-tooltip-content={user?.displayName || "User"}
             >
               {user.photoURL ? (
-                <img
+                <Link to='/profile' className="cursor-pointer">
+                  <img
                   src={user.photoURL}
                   alt="user"
                   className="w-10 h-10 rounded-full border-2 border-pink-400 hover:scale-105 transition"
                 />
+                </Link>
               ) : (
                 <FaUserCircle className="text-3xl text-gray-500" />
               )}

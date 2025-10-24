@@ -30,7 +30,6 @@ const Blog = () => {
         ToyTopia Blog
       </h1>
 
-      {/* Blog Cards */}
       <div className="grid md:grid-cols-3 gap-8 mb-16">
         {blogs.map((blog) => (
           <div
@@ -68,7 +67,7 @@ const Blog = () => {
         <h2 className="text-3xl font-bold text-purple-700 mb-6 flex items-center gap-2">
           <FaQuestionCircle /> React & Firebase Q&A
         </h2>
-        <div className="space-y-4">
+        <div className="space-y-4 ">
           {faqs.map((faq) => (
             <div
               key={faq.id}

@@ -13,6 +13,8 @@ import AboutUs from "../components/AboutUs";
 import ToyDetails from "../pages/ToyDetails";
 import MyToys from "../pages/MyToys";
 import ForgetPassword from "../pages/ForgetPassword";
+import ContactUs from "../components/ContactUs";
+import MyProfile from "../pages/MyProfile";
 
 export const router = createBrowserRouter([
   {
@@ -54,12 +56,24 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: "profile",
+        element: (
+          <PrivateRoute>
+            <MyProfile />
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "/blog",
         element: <Blog />,
       },
       {
         path: "/about",
         element: <AboutUs />,
+      },
+      {
+        path: "/contact",
+        element: <ContactUs />,
       },
       {
         path: "/auth/login",

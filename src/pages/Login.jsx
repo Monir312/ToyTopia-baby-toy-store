@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
 import { GiShakingHands } from "react-icons/gi";
 import { AuthContext } from "../authContext/AuthProvider";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [error, setError] = useState("");
@@ -21,12 +22,13 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log("Logged in user:", user);
+        toast.success('Sign in successfully');
         form.reset();
-
         navigate(location.state?.from?.pathname || "/");
       })
       .catch((error) => {
         console.error(error);
+        toast.error("Invalid email or password ");
         setError(error.message);
       });
   };
@@ -35,10 +37,12 @@ const Login = () => {
     googleSignIn()
       .then((result) => {
         console.log(result.user);
+        toast.success('Google Sign in successfully');
         navigate(location.state?.from?.pathname || "/");
       })
       .catch((error) => {
         console.error(error);
+        toast.error("Google Sign in failed ");
         setError(error.message);
       });
   };
@@ -98,7 +102,7 @@ const Login = () => {
           {/* Sign In Button */}
           <button
             type="submit"
-            className="w-full py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition duration-300 shadow-md"
+            className="w-full py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition duration-300 shadow-md cursor-pointer"
           >
             Sign In
           </button>
@@ -114,7 +118,7 @@ const Login = () => {
         {/* Google Sign In */}
         <button
           onClick={handleGoogleSignIn}
-          className="w-full flex items-center justify-center gap-2 border border-gray-300 py-2 rounded-lg hover:bg-gray-50 transition duration-300"
+          className="w-full flex items-center justify-center gap-2 border border-gray-300 py-2 rounded-lg hover:bg-gray-50 transition duration-300 cursor-pointer"
         >
           <FcGoogle className="text-2xl" />{" "}
           <span className="font-medium text-gray-700">

@@ -42,7 +42,6 @@ const ToyCategory = () => {
         Toy Categories
       </h2>
 
-      {/* Tabs */}
       <div className="flex flex-wrap justify-center gap-3 mb-8">
         {categories.map((category) => (
           <button
@@ -59,7 +58,6 @@ const ToyCategory = () => {
         ))}
       </div>
 
-      {/* Toys Grid */}
       <div  className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filteredToys.map((toy) => (
           <div key={toy.toyId} className="bg-white rounded-xl shadow-md p-4 hover:shadow-xl transition">
