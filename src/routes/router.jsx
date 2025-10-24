@@ -11,6 +11,8 @@ import Blog from "../pages/Blog";
 import Loading from "../pages/Loading";
 import AboutUs from "../components/AboutUs";
 import ToyDetails from "../pages/ToyDetails";
+import MyToys from "../pages/MyToys";
+import ForgetPassword from "../pages/ForgetPassword";
 
 export const router = createBrowserRouter([
   {
@@ -36,6 +38,14 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: "/mytoys",
+        element: (
+          <PrivateRoute>
+            <MyToys />
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "/toydetails/:id",
         element: (
           <PrivateRoute>
@@ -54,6 +64,10 @@ export const router = createBrowserRouter([
       {
         path: "/auth/login",
         element: <Login />
+      },
+      {
+        path: "/auth/forget-password",
+        element: <ForgetPassword />
       },
       {
         path: "/auth/register",

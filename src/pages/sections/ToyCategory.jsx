@@ -60,7 +60,7 @@ const ToyCategory = () => {
       </div>
 
       {/* Toys Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div  className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filteredToys.map((toy) => (
           <div key={toy.toyId} className="bg-white rounded-xl shadow-md p-4 hover:shadow-xl transition">
             <img
