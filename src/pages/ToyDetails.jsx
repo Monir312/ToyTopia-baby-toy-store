@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { TiShoppingCart } from "react-icons/ti";
 import { useParams } from "react-router";
+import { toast } from "react-toastify";
 
 const ToyDetails = () => {
   const { id } = useParams();
@@ -29,6 +30,7 @@ const ToyDetails = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSuccess(true);
+    toast.success("Form submitted successfully!");
     setFormData({ name: "", email: "" });
   };
 
@@ -55,14 +57,14 @@ const ToyDetails = () => {
 
     const alreadyExists = existingCart.find((item) => item.toyId === toy.toyId);
     if (alreadyExists) {
-      alert("This toy is already added to your list!");
+      toast.error("This toy is already added to your list!");
       return;
     }
 
     existingCart.push(newToy);
     localStorage.setItem("myToys", JSON.stringify(existingCart));
 
-    alert(`${toy.toyName} added to My Toys successfully!`);
+    toast.success(`${toy.toyName} added to My Toys successfully!`);
   };
 
 
@@ -110,11 +112,6 @@ const ToyDetails = () => {
 
           <div className="mt-6 p-6 bg-white rounded-xl shadow-lg">
             <h3 className="text-2xl font-semibold mb-4">Try This Toy</h3>
-            {success && (
-              <p className="text-green-600 mb-4 font-semibold">
-                Form submitted successfully!
-              </p>
-            )}
             <form onSubmit={handleSubmit} className="space-y-4">
               <input
                 type="text"
