@@ -24,7 +24,7 @@ const Login = () => {
         console.log("Logged in user:", user);
         toast.success('Sign in successfully');
         form.reset();
-        navigate(location.state?.from?.pathname || "/");
+        navigate(`${location.state ? location.state : '/'}`);
       })
       .catch((error) => {
         console.error(error);
@@ -38,7 +38,7 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         toast.success('Google Sign in successfully');
-        navigate(location.state?.from?.pathname || "/");
+        navigate(`${location.state ? location.state : '/'}`);
       })
       .catch((error) => {
         console.error(error);
