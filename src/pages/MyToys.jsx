@@ -45,7 +45,7 @@ const MyToys = () => {
 
   return (
     <section className="py-2 pt-5 bg-gray-50">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 w-[90%]">
         <h1 className="text-4xl font-bold text-center text-purple-700 mb-10">
           My Toys
         </h1>
@@ -58,9 +58,6 @@ const MyToys = () => {
             Sort by Price ({sortOrder === "asc" ? "Low→High" : "High→Low"})
           </button>
         </div>
-
-
-
 
         <div className="overflow-x-auto bg-white rounded-xl shadow-lg p-4">
           <table className="w-full table-auto">
@@ -112,9 +109,6 @@ const MyToys = () => {
             </button>
           </div>
         </div>
-
-
-
 
 
         {toys.length === 0 && (

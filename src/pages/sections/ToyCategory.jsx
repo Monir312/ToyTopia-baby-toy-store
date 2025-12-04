@@ -12,11 +12,12 @@ const ToyCategory = () => {
       .then((data) => {
         setToys(data);
 
+        // Unique categories
         const uniqueCategories = [
           ...new Set(data.map((toy) => toy.subCategory)),
         ];
         setCategories(uniqueCategories);
-        setActiveCategory(uniqueCategories[0]); 
+        setActiveCategory(uniqueCategories[0]); // প্রথম category active
       })
       .catch((err) => console.error("Failed to load toy data:", err));
   }, []);
@@ -37,11 +38,12 @@ const ToyCategory = () => {
   }
 
   return (
-    <div className="my-12">
+    <section className="my-12 max-w-[90vw] mx-auto px-4">
       <h2 className="text-3xl font-bold text-center text-purple-700 mb-6">
         Toy Categories
       </h2>
 
+      {/* Category Buttons */}
       <div className="flex flex-wrap justify-center gap-3 mb-8">
         {categories.map((category) => (
           <button
@@ -58,9 +60,13 @@ const ToyCategory = () => {
         ))}
       </div>
 
-      <div  className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {/* Toys Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filteredToys.map((toy) => (
-          <div key={toy.toyId} className="bg-white rounded-xl shadow-md p-4 hover:shadow-xl transition">
+          <div
+            key={toy.toyId}
+            className="bg-white rounded-xl shadow-md p-4 hover:shadow-xl transition"
+          >
             <img
               src={toy.pictureURL}
               alt={toy.toyName}
@@ -72,7 +78,7 @@ const ToyCategory = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

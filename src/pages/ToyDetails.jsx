@@ -12,6 +12,7 @@ const ToyDetails = () => {
   const [toy, setToy] = useState(null);
   const [formData, setFormData] = useState({ name: "", email: "" });
   const [success, setSuccess] = useState(false);
+  console.log(success);
 
   useEffect(() => {
     fetch("/toys.json")
@@ -43,6 +44,7 @@ const ToyDetails = () => {
   const increaseQuantity = () => {
     setQuantity(prev => prev + 1);
   };
+  
   const handleAddToCart = () => {
     const existingCart = JSON.parse(localStorage.getItem("myToys")) || [];
 
@@ -71,7 +73,7 @@ const ToyDetails = () => {
 
   return (
     <section className="py-20 bg-gray-100">
-      <div className="container mx-auto px-6 lg:flex gap-12">
+      <div className="w-[90%] mx-auto lg:flex gap-12">
 
         <div className="lg:w-1/2 flex justify-center mb-8 lg:mb-0">
           <img
@@ -86,7 +88,7 @@ const ToyDetails = () => {
           <p className="text-gray-700 text-lg">{toy.description}</p>
 
           <div className="grid grid-cols-2 gap-4 text-gray-600 font-semibold">
-          <div>Price: <span className="font-bold">${(toy.price * quantity).toFixed(2)}</span></div>
+            <div>Price: <span className="font-bold">${(toy.price * quantity).toFixed(2)}</span></div>
 
             <div className="flex items-center gap-3 ">Rating: <span className="font-bold">{toy.rating} </span> <FaStar className="text-yellow-400" /></div>
             <div>Available: <span className="font-bold">{toy.availableQuantity}</span> </div>

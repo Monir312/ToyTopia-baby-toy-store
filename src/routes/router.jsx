@@ -49,11 +49,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/toydetails/:id",
-        element: (
-          <PrivateRoute>
-            <ToyDetails />
-          </PrivateRoute>
-        ),
+        element: <ToyDetails />,
       },
       {
         path: "profile",

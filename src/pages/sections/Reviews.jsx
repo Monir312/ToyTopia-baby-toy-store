@@ -12,9 +12,17 @@ const Reviews = () => {
       .catch((err) => console.error("Failed to load reviews:", err));
   }, []);
 
+  if (!reviews.length) {
+    return (
+      <div className="w-full h-[300px] flex items-center justify-center bg-gray-100 text-gray-600 text-xl font-semibold">
+        Loading Reviews...
+      </div>
+    );
+  }
+
   return (
     <section className="bg-gray-100 py-20">
-      <div className="container mx-auto px-6 text-center">
+      <div className="max-w-[90vw] mx-auto px-4 text-center">
         <motion.h2
           className="text-4xl md:text-5xl font-bold mb-12 text-gray-800 drop-shadow-lg"
           initial={{ opacity: 0, y: -30 }}
@@ -39,7 +47,7 @@ const Reviews = () => {
                   alt={review.name}
                   className="w-20 h-20 rounded-full mb-4 object-cover shadow-md"
                 />
-                <h3 className="text-xl font-semibold mb-2">{review.name}</h3>
+                <h3 className="text-xl font-semibold mb-2 text-gray-800">{review.name}</h3>
                 <div className="flex mb-4">
                   {[...Array(5)].map((_, i) => (
                     <FaStar

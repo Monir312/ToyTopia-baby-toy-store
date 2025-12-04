@@ -10,14 +10,14 @@ const MainLayout = () => {
   const {state} = useNavigation();
 
   return (
-    <div>
+    <div className=''>
       <header>
         <nav className=''>
           <Navbar></Navbar>
         </nav>
       </header>
 
-      <main className='w-full '>
+      <main className='w-full mt-16'>
         <section className="main col-span-6">
           {state == "loading" ? <Loading/> : <Outlet></Outlet>}
         </section>

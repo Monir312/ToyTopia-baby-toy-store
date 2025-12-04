@@ -43,7 +43,7 @@ const Banner = () => {
 
   if (!slide) {
     return (
-      <div className="w-full h-[400px] flex items-center justify-center bg-gray-100 text-gray-600 text-xl font-semibold">
+      <div className="w-full max-w-[90vw] h-[300px] flex items-center justify-center bg-gray-100 text-gray-600 text-xl font-semibold mx-auto">
         Loading Banner...
       </div>
     );
@@ -62,66 +62,67 @@ const Banner = () => {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -100 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
-          className={`min-h-[80vh] flex flex-col lg:flex-row items-center justify-center bg-gradient-to-r ${slide.bg} relative`}
+          className={`min-h-[70vh] flex justify-center bg-gradient-to-r ${slide.bg} relative`}
         >
-          
-          <div
-            className="absolute inset-0 bg-cover bg-center opacity-20"
-            style={{ backgroundImage: `url(${slide.image})` }}
-          ></div>
+          {/* Wrapper for content: max 90% width */}
+          <div className="w-full max-w-[90vw] flex flex-col lg:flex-row items-center justify-center relative">
+            <div
+              className="absolute inset-0 bg-cover bg-center opacity-20 rounded-xl"
+              style={{ backgroundImage: `url(${slide.image})` }}
+            ></div>
 
-          <div className="relative z-10 w-full lg:w-1/2 px-8 md:px-16 py-10 text-center lg:text-left">
-            <motion.h1
-              className="text-4xl md:text-6xl font-extrabold leading-tight mb-6 drop-shadow-lg"
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6 }}
-            >
-              {slide.title?.split(" ").map((word, index) => (
-                <span
-                  key={index}
-                  className={index % 2 === 0 ? "text-yellow-300" : ""}
-                >
-                  {word}{" "}
-                </span>
-              ))}
-            </motion.h1>
+            <div className="relative z-10 w-full lg:w-1/2 px-8 md:px-16 py-10 text-center lg:text-left">
+              <motion.h1
+                className="text-4xl md:text-6xl font-extrabold leading-tight mb-6 drop-shadow-lg"
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6 }}
+              >
+                {slide.title?.split(" ").map((word, index) => (
+                  <span
+                    key={index}
+                    className={index % 2 === 0 ? "text-yellow-300" : ""}
+                  >
+                    {word}{" "}
+                  </span>
+                ))}
+              </motion.h1>
 
-            <motion.p
-              className="text-lg md:text-xl mb-8 text-gray-100 font-light"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-            >
-              {slide.subtitle}
-            </motion.p>
+              <motion.p
+                className="text-lg md:text-xl mb-8 text-gray-100 font-light"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
+              >
+                {slide.subtitle}
+              </motion.p>
 
-            <div className="flex gap-4 justify-center lg:justify-start">
-              <Link to='/alltoys' className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold rounded-xl px-6 py-3 shadow-lg transition-all duration-300 transform hover:scale-105">
-                Shop Now
-              </Link>
-              <button className="border border-white text-white rounded-xl px-6 py-3 hover:bg-white hover:text-purple-600 transition-all duration-300">
-                Learn More
-              </button>
+              <div className="flex gap-4 justify-center lg:justify-start">
+                <Link to='/alltoys' className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold rounded-xl px-6 py-3 shadow-lg transition-all duration-300 transform hover:scale-105">
+                  Shop Now
+                </Link>
+                <button className="border border-white text-white rounded-xl px-6 py-3 hover:bg-white hover:text-purple-600 transition-all duration-300">
+                  Learn More
+                </button>
+              </div>
             </div>
-          </div>
 
-          <motion.div
-            className="relative z-10 w-full lg:w-1/2 flex justify-center"
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.8 }}
-          >
-            <img
-              src={slide.image}
-              alt="banner"
-              className="w-3/4 md:w-2/3 drop-shadow-2xl animate-float"
-            />
-          </motion.div>
+            <motion.div
+              className="relative z-10 w-full lg:w-1/2 flex justify-center mt-8 lg:mt-0"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.8 }}
+            >
+              <img
+                src={slide.image}
+                alt="banner"
+                className="w-3/4 md:w-2/3 drop-shadow-2xl animate-float"
+              />
+            </motion.div>
+          </div>
         </motion.div>
       </AnimatePresence>
     </section>
-
   );
 };
 

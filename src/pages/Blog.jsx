@@ -30,7 +30,7 @@ const Blog = () => {
         ToyTopia Blog
       </h1>
 
-      <div className="grid md:grid-cols-3 gap-8 mb-16">
+      <div className="w-[90%] mx-auto grid md:grid-cols-3 gap-8 mb-16">
         {blogs.map((blog) => (
           <div
             key={blog.id}
@@ -63,7 +63,7 @@ const Blog = () => {
       </div>
 
 
-      <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-lg p-8">
+      <div className="w-[90%] mx-auto bg-white rounded-3xl shadow-lg p-8">
         <h2 className="text-3xl font-bold text-purple-700 mb-6 flex items-center gap-2">
           <FaQuestionCircle /> React & Firebase Q&A
         </h2>

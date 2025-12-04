@@ -39,7 +39,7 @@ const AboutUs = () => {
         </div>
       </div>
 
-      {/* Floating Animation */}
+
       <style>
         {`
           @keyframes float {

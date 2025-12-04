@@ -14,9 +14,17 @@ const WhyChoose = () => {
       .catch((err) => console.error("Failed to load features data:", err));
   }, []);
 
+  if (!features.length) {
+    return (
+      <div className="w-full h-[300px] flex items-center justify-center bg-gray-100 text-gray-600 text-xl font-semibold">
+        Loading Features...
+      </div>
+    );
+  }
+
   return (
     <section className="bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500 py-20 text-white">
-      <div className="container mx-auto px-6 text-center">
+      <div className="max-w-[90vw] mx-auto px-4 text-center">
         <motion.h2
           className="text-4xl md:text-5xl font-bold mb-12 text-white drop-shadow-lg"
           initial={{ opacity: 0, y: -30 }}
@@ -26,6 +34,7 @@ const WhyChoose = () => {
           Why Choose Us?
         </motion.h2>
 
+        {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
           {features.map((feature) => (
             <motion.div
@@ -42,12 +51,13 @@ const WhyChoose = () => {
                   className="w-20 h-20 mx-auto mb-4"
                 />
               </div>
-              <h3 className="text-2xl font-semibold mb-3">{feature.toyName}</h3> 
-              <p className="text-lg text-gray-700">{feature.description}</p>
+              <h3 className="text-2xl font-semibold mb-3 text-gray-800">{feature.toyName}</h3>
+              <p className="text-gray-700 text-lg">{feature.description}</p>
             </motion.div>
           ))}
         </div>
 
+        {/* Call to Action */}
         <motion.div
           className="mt-12"
           initial={{ opacity: 0 }}

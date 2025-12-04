@@ -9,7 +9,7 @@ import { Link } from "react-router";
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-r from-pink-200 via-yellow-100 to-pink-100 text-gray-800 pt-10 pb-6">
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+      <div className="w-full max-w-[90vw] mx-auto grid md:grid-cols-4 gap-8 px-6">
         <div>
           <h2 className="text-3xl font-bold text-pink-600 mb-3">ToyTopia</h2>
           <p className="text-sm text-gray-700">
